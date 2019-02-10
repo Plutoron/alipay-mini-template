@@ -1,0 +1,13 @@
+const config = {
+  appid: '',
+  appSecret: '',
+  mode: 'dev', // dev / test / pro
+  prefix: {
+    dev: 'dev.www.baidu.com',
+    test: 'test.www.baidu.com',
+    pro: 'pro.www.baidu.com',
+  },
+  https: true,
+}
+
+export default config
