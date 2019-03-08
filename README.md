@@ -54,6 +54,7 @@ page
 
 #### io-context
 > 封装的my.httpRequest
+> restful 的参数 ':xxx' 形式
 
 ### components
 
