@@ -25,7 +25,7 @@ Page({
         wd: '222'
       })
     } catch(e) {
-      console.log('e', e)
+      app.error(e)
     }
   },
 
