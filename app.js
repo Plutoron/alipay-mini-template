@@ -34,5 +34,11 @@ App({
       });
     });
   },
+  error(err) {
+		my.showToast({
+			content: err || '好像哪里出问题了',
+			type: 'none',
+		})
+	},
   ...config,
 });
