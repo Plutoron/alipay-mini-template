@@ -17,9 +17,7 @@ Page({
       })
       console.log(res)
     } catch (e) {
-      my.showToast({
-        title: e.errMsg,
-      })
+      app.message(e)
     }
   },
   onReady() {

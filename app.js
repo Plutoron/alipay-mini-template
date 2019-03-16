@@ -34,9 +34,9 @@ App({
       });
     });
   },
-  error(err) {
+  message(msg) {
 		my.showToast({
-			content: err || '好像哪里出问题了',
+			content: msg || '好像哪里出问题了',
 			type: 'none',
 		})
 	},
