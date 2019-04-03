@@ -58,7 +58,7 @@ page
 
 ### components
 
-> 自定义组件集合，统一在app.json下注册
+> 自定义组件集合，统一管理
 
 ### config
 
