@@ -36,9 +36,8 @@ App({
   },
   message(msg) {
 		console.log('message', msg)
-		wx.showToast({
-			title: msg ? (msg.message || msg) : '好像哪里出问题了',
-			icon: 'none',
+		my.showToast({
+			content: msg ? (msg.message || msg) : '好像哪里出问题了',
 		})
 	},
   ...config,
