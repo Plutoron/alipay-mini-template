@@ -734,11 +734,11 @@
   font-weight: 700;
 }
 
-.PR {
+.pr {
   position: relative;
 }
 
-.PA {
+.pa {
   position: absolute;
 }
 
@@ -777,6 +777,10 @@
   -webkit-line-clamp: 2;
 }
 
+.omit3 {
+  -webkit-line-clamp: 3;
+}
+
 .omit2,
 .omit3 {
   overflow: hidden;
@@ -784,27 +788,23 @@
   display: -webkit-box;
 }
 
-.omit3 {
-  -webkit-line-clamp: 3;
-}
-
-.BGF{
+.bgf{
   background-color: #fff;
 }
 
-.DPB{
+.block{
 	display: block;
 }
 
-.DPIB{
+.inline-block{
 	display: inline-block;
 }
 
-.DPIF{
+.inline-flex{
 	display: inline-flex;
 }
 
-.OFH{
+.of-hidden{
 	overflow: hidden;
 }
 
@@ -842,7 +842,11 @@
 	font-weight: 200;
 }
 
-.twrap{
+.t-wrap{
 	word-wrap: break-word;
   word-break: break-all;
+}
+
+.t-no-wrap{
+	white-space: nowrap;
 }
