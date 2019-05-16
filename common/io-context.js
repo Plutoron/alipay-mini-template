@@ -9,16 +9,21 @@ const ioContext = async ({
   header = {},
   method = 'GET',
   dataType = 'json',
-  data = {}
+  data = {},
+  originRes = false,
 }) => {
-  let isRestful 
+
+  // restful 接口  参数 ':xxx' 的形式传入data
+
+  let restful 
 
 	const dataKeys = Object.keys(data)
 	const restParam = []
-
+  
 	if (dataKeys.length > 0) {
+    // 根据 参数对象 key 是否 包含 ： 判断是否为 restful 参数
 		if (dataKeys.some(v => v.indexOf(':') > -1)) {
-			isRestful = true
+			restful = true
 			dataKeys.map((v, i) => {
 				if (v.indexOf(':') > -1) {
 					restParam.push(data[v])
@@ -27,14 +32,14 @@ const ioContext = async ({
 			})
 		}
   }
-  
+
   // 所有的请求，header默认携带token
   const res = await new Promise((resolve, reject) => {
     my.httpRequest({
-      url: `${https ? 'https' : 'http'}://${prefix[mode]}/${url}${isRestful ? '/' + restParam.join('/') : ''}`,
+      url: `${https ? 'https' : 'http'}://${prefix[mode]}/${url}${restful ? '/' + restParam.join('/') : ''}`,
       headers: {
         'Content-Type': 'application/json',
-        token: my.getStorageSync('token') || '',
+        token: my.getStorageSync({ key: 'token' }).data || '',
         ...header,
       },
       method,
@@ -42,7 +47,23 @@ const ioContext = async ({
       dataType,
       timeout: 20000,
       success: (res) => {
-        resolve(res.data)
+        if (originRes) {
+          resolve(res)
+        } else {
+          resolve(res.data)
+        }
+
+        // 在这里进行统一的 返回处理 
+				// demo: 
+        // if (res.data.success) {
+				// 	if (originRes) {
+				// 		resolve(res)
+				// 	} else {
+				// 		resolve(res.data.content)
+				// 	}
+				// } else {
+				// 	reject(res.data.message)
+				// }
       },
       fail: (err) => {
         reject(err)
