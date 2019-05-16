@@ -1,5 +1,5 @@
-## wechat-mini-template
-微信小程序模版
+## alipay-mini-template
+支付宝吧小程序模版
 
 ### 目录结构
 ```
