@@ -22,10 +22,11 @@ Page({
 
     try {
       await io.search({
-        wd: '222'
+        type: 'yuantong',
+        postid: 11111111111
       })
     } catch(e) {
-      app.error(e)
+      app.message(e)
     }
   },
 
